@@ -1,0 +1,7 @@
+/env
+/.git
+/src/server/asgi.py
+/src/server/wsgi.py
+.env
+src/db.sqlite3
+__pycache__/

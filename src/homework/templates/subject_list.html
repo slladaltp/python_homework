@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Subjects</title>
+</head>
+<body>
+<ul>
+    {% for subject in object_list %}
+    <li>
+        <a href="{% url 'subjects_update' pk=subject.id %}"> {{ subject.id }}: {{subject.name}}</a><br>
+        Subject description: {{ subject.description }} <br>
+        Hours in week: {{ subject.hours_in_week }}
+    </li>
+    {% endfor %}
+</ul>
+</body>
+</html>

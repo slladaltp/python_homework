@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teachers Update</title>
+</head>
+<body>
+<form action="{% url 'teachers_update' pk=person.id %}" method="post">
+    {% csrf_token %}
+
+    {{ form }}
+    <input type="submit">
+</form>
+</body>
+</html>

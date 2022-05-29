@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>update subject</title>
+</head>
+<body>
+<form action="{% url 'subjects_update' pk=subject.id%}" method="post">
+    {% csrf_token %}
+
+    {{ form }}
+    <input type="submit">
+</form>
+
+</body>
+</html>

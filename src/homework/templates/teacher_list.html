@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Teacher</title>
+
+</head>
+<body>
+<ul>
+  {% for teacher in object_list %}
+    {% if teacher.person_type == "teacher" %}
+      <li>
+          <br>
+          <a href="{% url 'teachers_update' pk=teacher.id %}">{{ teacher.id }}. {{ teacher.first_name }} {{ teacher.last_name }}</a>
+          <br>Age: {{ teacher.age }}
+          <br>Created: {{ teacher.create_time }}
+          <br>Updated: {{ teacher.update_time }}
+          <br>Is active: {{ teacher.is_active }}
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>
+
+</body>
+</html>

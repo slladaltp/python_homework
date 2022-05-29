@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student</title>
+</head>
+<body>
+<ul>
+  {% for student in object_list %}
+    {% if student.person_type == "student" %}
+      <li>
+          <a href="{% url 'student_detail' pk=student.id %}">{{ student.id }}: {{ student.first_name }} {{ student.last_name }}</a>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>
+
+
+</body>
+</html>

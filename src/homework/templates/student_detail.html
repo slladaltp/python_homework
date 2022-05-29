@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Details</title>
+</head>
+<body>
+<ul>
+
+  <li>
+    Name: {{ person.first_name }}
+  </li>
+  <li>
+    Last name: {{ person.last_name }}
+  </li>
+  <li>
+    Age: {{ person.age }}
+  </li>
+  <li>
+    Created: {{ person.create_time|date:"d,m,y"}}
+  </li>
+  <li>
+    Updated: {{ person.update_time|date:"d,m,y"}}
+  </li>
+</ul>
+
+
+</body>
+</html>
