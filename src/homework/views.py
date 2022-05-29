@@ -70,7 +70,7 @@ class StudentDetail(DetailView):
 def email_send(request):
     send(
         "Reset password",
-        "eliza.tripolskaya21@gmail.com",
+        "admin@ban-adept.ru",
         "reset_password",
     )
     return render(request, 'email_send.html')
