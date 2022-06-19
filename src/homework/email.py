@@ -4,16 +4,15 @@ from django.template import loader
 from django.core.mail import send_mail
 
 
-def send(subject, to_email,  template_name, ):
+def send(subject, to_email,  template_name, context=None):
     """
      Отправка письма на заданный адресс.
     """
     html_template = loader.get_template(f"{template_name}.html")
-    html_message = html_template.render()
+    html_message = html_template.render(context)
 
     txt_template = loader.get_template(f"{template_name}.txt")
     txt_message = txt_template.render()
-
     send_mail(
         subject=subject,
         message=txt_message,

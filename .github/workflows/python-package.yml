@@ -5,7 +5,7 @@ name: Python package
 
 on:
   push:
-    branches: [ main, login ]
+    branches: [ main, signup ]
   pull_request:
     branches: [ main ]
 

@@ -1,8 +1,10 @@
 from django.contrib import admin
 from django.urls import path
 
-from homework.views import home, email_send, sign_in, logging_out, SubjectSelect, SubjectUpdate, TeacherSelect, \
-    TeacherUpdate, StudentDetail, StudentSelect
+from homework.views import home, email_send, sign_in, logging_out, register, activate
+from homework.views import SubjectSelect, SubjectUpdate
+from homework.views import TeacherSelect, TeacherUpdate
+from homework.views import StudentSelect, StudentDetail
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -19,5 +21,8 @@ urlpatterns = [
     path('student_detail/<int:pk>', StudentDetail.as_view(), name="student_detail"),
 
     path('login', sign_in, name='login'),
-    path('logout', logging_out, name='logout')
+    path('logout', logging_out, name='logout'),
+
+    path('signup', register, name='signup'),
+    path('verify_account/<str:uid>/<str:token>', activate, name='verify_account'),
 ]
