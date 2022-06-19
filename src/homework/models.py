@@ -1,6 +1,6 @@
 from django.db import models
 from django.db.models import CASCADE
-
+from django.utils import timezone
 
 class Person(models.Model):
     """
@@ -26,9 +26,9 @@ class Group(models.Model):
 
     number = models.IntegerField()
     students_amount = models.IntegerField()
-
+    name = models.CharField(max_length=90, null=True)
     course = models.ForeignKey("Course", on_delete=CASCADE, null=True)
-
+    create_time = models.DateTimeField(default=timezone.now())
 
 class Subject(models.Model):
     """
@@ -41,7 +41,7 @@ class Subject(models.Model):
 
     teacher = models.OneToOneField("Person", on_delete=CASCADE, null=True)
 
-
+    create_time = models.DateTimeField(default=timezone.now())
 class Course(models.Model):
     """
      Model for course.

@@ -5,7 +5,7 @@ name: Python package
 
 on:
   push:
-    branches: [ main, swagger ]
+    branches: [ main, pagination ]
   pull_request:
     branches: [ main ]
 
@@ -27,11 +27,6 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install django
-        pip install django-extensions
-        pip install flake8 pytest
-        pip install django-cors-headers
-        pip install -U drf-yasg
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Lint with flake8
       run: |

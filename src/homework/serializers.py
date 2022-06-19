@@ -13,7 +13,7 @@ class PersonSerializer(serializers.HyperlinkedModelSerializer):
 class GroupSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Group
-        fields = ['url', 'number', 'students_amount', 'course', ]
+        fields = ['url', 'number', 'students_amount', 'name', 'course', 'create_time']
 
 
 class SubjectSerializer(serializers.HyperlinkedModelSerializer):
