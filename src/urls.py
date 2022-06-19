@@ -6,21 +6,20 @@ from rest_framework import permissions
 
 from homework.router import router
 from homework.views import (StudentDetail, StudentSelect, SubjectSelect,
-                       SubjectUpdate, TeacherSelect, TeacherUpdate, activate,
-                       email_send, home, logging_out, register, sign_in)
-
+                            SubjectUpdate, TeacherSelect, TeacherUpdate, activate,
+                            email_send, home, logging_out, register, sign_in)
 
 schema_view = get_schema_view(
-   openapi.Info(
-      title="Snippets API",
-      default_version='v1',
-      description="Test description",
-      terms_of_service="https://www.google.com/policies/terms/",
-      contact=openapi.Contact(email="contact@snippets.local"),
-      license=openapi.License(name="BSD License"),
-   ),
-   public=True,
-   permission_classes=[permissions.AllowAny],
+    openapi.Info(
+        title="Snippets API",
+        default_version='v1',
+        description="Test description",
+        terms_of_service="https://www.google.com/policies/terms/",
+        contact=openapi.Contact(email="contact@snippets.local"),
+        license=openapi.License(name="BSD License"),
+    ),
+    public=True,
+    permission_classes=[permissions.AllowAny],
 )
 
 urlpatterns = [
@@ -33,7 +32,6 @@ urlpatterns = [
     path('email_send', email_send),
 
     path('api/', include(router.urls)),
-
 
     path('subjects', SubjectSelect.as_view(), name="subjects_list"),
     path('sub_update/<int:pk>', SubjectUpdate.as_view(), name='subjects_update'),
