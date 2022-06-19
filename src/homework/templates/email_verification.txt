@@ -1,1 +1,4 @@
-Верификация аккаунта прошла успешно.
+Hello {{ username }}!
+
+Please, verify your account by clicking the following link:
+{{ request.scheme }}://{{ request.META.HTTP_HOST }}{{ verify_url }}

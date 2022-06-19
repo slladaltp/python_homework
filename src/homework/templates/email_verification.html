@@ -1,10 +1,13 @@
 {% extends "base.html" %}
 
 {% block title %}
-  Verify.
+  Verify your account.
 {% endblock %}
 
 {% block content %}
-    <p> Верификация аккаунта прошла успешно. </p>
+    Hello {{ username }}!
+
+    Please, verify your account by clicking the following link:
+    {{ request.scheme }}://{{ request.META.HTTP_HOST }}{{ verify_url }}
 
 {% endblock %}
