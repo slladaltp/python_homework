@@ -153,18 +153,27 @@ def activate(request, uid, token):
 
 
 class PersonViewSet(viewsets.ModelViewSet):
+    """
+        API endpoint that allows person to be viewed or edited.
+    """
     queryset = Person.objects.all()
     serializer_class = PersonSerializer
     permission_classes = [permissions.IsAuthenticated]
 
 
 class GroupViewSet(viewsets.ModelViewSet):
+    """
+         API endpoint that allows Group to be viewed or edited.
+    """
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
     permission_classes = [permissions.IsAuthenticated]
 
 
 class SubjectViewSet(viewsets.ModelViewSet):
+    """
+     API endpoint that allows Subjects to be viewed or edited.
+    """
     queryset = Subject.objects.all()
     serializer_class = SubjectSerializer
     permission_classes = [permissions.IsAuthenticated]
