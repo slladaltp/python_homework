@@ -7,7 +7,7 @@ from rest_framework import permissions
 from homework.router import router
 from homework.views import (StudentDetail, StudentSelect, SubjectSelect,
                             SubjectUpdate, TeacherSelect, TeacherUpdate, activate,
-                            email_send, home, logging_out, register, sign_in)
+                            email_send, home, logging_out, register, sign_in, index)
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -47,4 +47,6 @@ urlpatterns = [
 
     path('signup', register, name='signup'),
     path('verify_account/<str:uid>/<str:token>', activate, name='verify_account'),
+    path('tasks/', include('tasks.urls')),
+    path(r'^$', index, name='index'),
 ]
