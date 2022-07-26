@@ -11,7 +11,6 @@ from django.views.generic import DetailView, ListView, UpdateView
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import permissions, viewsets
 from rest_framework.filters import OrderingFilter
-import requests
 
 from .email import send
 from .models import Person, Subject, Group
@@ -80,7 +79,7 @@ class StudentDetail(DetailView):
 def email_send(request):
     send(
         "Reset password",
-        "admin@ban-adept.ru",
+        "eliza.tripolskaya21@gmail.com",
         "reset_password",
     )
     return render(request, 'email_send.html')
@@ -189,8 +188,3 @@ class SubjectViewSet(viewsets.ModelViewSet):
     filter_backends = [DjangoFilterBackend, OrderingFilter]
     filterset_fields = ['name']
     ordering_fields = ['create_time']
-
-
-def index(request):
-    myip = requests.get('https://httpbin.org/ip')
-    return HttpResponse(myip.content)
