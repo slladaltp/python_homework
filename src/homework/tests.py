@@ -1,6 +1,10 @@
 from django.contrib.auth import get_user_model
 from django.urls import reverse
 from rest_framework.test import APITestCase
+from tasks import add, multiply
+from freezegun import freeze_time
+
+
 
 from homework.models import Person, Subject, Group
 
@@ -273,3 +277,12 @@ class GroupViewTestCase(APITestCase):
             group.name,
             'test name'
         )
+
+def test_celery_worker_initializes(celery_app, celery_worker):
+    assert True
+
+
+def test_celery_tasks(celery_app, celery_worker):
+
+    assert add.delay(4, 4).get(timeout=5) == 8
+    assert multiply.delay(4, 4).get(timeout=5) == 16
